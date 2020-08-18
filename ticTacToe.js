@@ -19,6 +19,37 @@ function setup() {
   }
 }
 
+function checkWinner() {
+   let winner = null;
+
+   //horizontal
+    for (let i = 0; i < 3; i++){
+        if (board[i][0] == board[i][1] == board[i][2]){
+            winner = board[i][0];
+        }
+    }
+    //vertical
+    for (let i = 0; i < 3; i++){
+        if (board[0][i] == board[0][i] == board[0][i]){
+            winner = board[0][i];
+        }
+    }
+    //diagonal
+    if(board[0][0] == board [1][1] == board[2][2]){
+        winner = board [0][0];
+    }
+
+    if(board[2][0] == board [1][1] == board[0][2]){
+        winner = board [2][0];
+    }
+
+   if (winner == null && available.length == 0){
+       console.log('tie');
+   } else {
+       console.log(winner);
+   }
+}
+
 function nextTurn() {
     let index = floor(random(available.length));
     let spot = available.splice(index, 1)[0];
@@ -60,4 +91,5 @@ function draw() {
     }
   }
   nextTurn();
+  checkWinner();
 }
