@@ -22,10 +22,10 @@ function draw() {
             let y = h * j + h/2;
             let spot = board [i][j];
             textSize(32);
+            strokeWeight(4);
             if (spot == player2) {
                 noFill();
-                ellipseMode(CORNER);
-                ellipse(x,y,w);
+                ellipse(x,y,w/2);
             }else if  (spot == player1){
                 let xr = w/4;
                 line (x - xr, y - xr, x + xr, y + xr);
