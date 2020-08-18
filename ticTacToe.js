@@ -11,7 +11,7 @@ let available = [];
 
 function setup() {
   createCanvas(400, 400);
-  currentPlayer = random(players);
+  currentPlayer = floor(random(players.length));
   for (let j = 0; j < 3; j++) {
     for (let i = 0; i < 3; i++){
         available.push[i,j];
@@ -24,13 +24,13 @@ function nextTurn() {
     let spot = available.splice(index, 1)[0];
     let i = spot[0];
     let j = spot [1];
-    board [i][j] = currentPlayer;
-    currentPlayer = random(players);
+    board [i][j] = players[currentPlayer];
+    currentPlayer = (currentPlayer + 1) % players.length;
 }
 
-function mousePressed() {
-    nextTurn(); 
-}
+// function mousePressed() {
+//     nextTurn(); 
+// }
 
 function draw() {
   background(255);
@@ -59,4 +59,5 @@ function draw() {
       }
     }
   }
+  nextTurn();
 }
