@@ -13,9 +13,15 @@ function setup(){
 
 function draw() {
     background (220);
+    let w = width / 3;
+    let h = height / 3;
     for (let i = 0; i < 3; i++) {
         for (let j = 0; i < 3; i++) {
-            
+            let x = w * i;
+            let y = h * j;
+            let spot = board [i][j];
+            textSize(32);
+            text(spot, x, y);
         }
     } 
 }
